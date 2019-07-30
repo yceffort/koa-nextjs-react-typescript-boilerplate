@@ -1,0 +1,39 @@
+{
+  "name": "custom-server-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/index.js"
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-morgan": "^1.0.1",
+    "koa-mount": "^4.0.0",
+    "koa-proxies": "^0.8.1",
+    "koa-router": "^7.4.0",
+    "next": "latest",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.49",
+    "@types/koa-morgan": "^1.0.4",
+    "@types/koa-mount": "^4.0.0",
+    "@types/koa-router": "^7.0.42",
+    "@types/node": "^12.0.12",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "16.8.4",
+    "@types/styled-components": "^4.1.18",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-styled-components": "^1.10.6",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.1.0",
+    "nodemon": "^1.19.0",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
