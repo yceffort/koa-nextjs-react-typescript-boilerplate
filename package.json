@@ -1,5 +1,5 @@
 {
-  "name": "custom-server-typescript",
+  "name": "koa-nextjs-react-typescript-boilerplate",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon",
