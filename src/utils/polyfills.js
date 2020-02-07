@@ -28,4 +28,12 @@ function addCustomEventPolyfill() {
   window.CustomEvent = CustomEvent
 }
 
+function addArrayFlatPolyfill() {
+  const ArrayPrototype = Array.prototype
+
+  if ('flatten' in ArrayPrototype && !('flat' in ArrayPrototype)) {
+    ArrayPrototype.flat = ArrayPrototype.flatten
+  }
+}
 addCustomEventPolyfill()
+addArrayFlatPolyfill()
