@@ -36,7 +36,6 @@ async function main() {
     .use(morgan('combined'))
     .use(
       mount('/health', (ctx: Koa.Context) => {
-        handle(ctx.req, ctx.res)
         ctx.status = 200
       }),
     )
