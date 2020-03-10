@@ -14,10 +14,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "**/*.{ts,tsx}": []
   },
   "dependencies": {
     "humps": "^2.0.1",
