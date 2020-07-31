@@ -1,42 +1,42 @@
-import React from 'react'
+import React from 'react';
 import Document, {
   Head,
   Main,
   NextScript,
   DocumentContext,
-} from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+} from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 interface Props {
-  styleTags: any
+  styleTags: any;
 }
 
 export default class MyDocument extends Document<Props> {
   static async getInitialProps({ req, renderPage }: DocumentContext) {
-    const sheet = new ServerStyleSheet()
+    const sheet = new ServerStyleSheet();
     const page = renderPage((App: any) => (props: any) =>
       sheet.collectStyles(<App {...props} />),
-    )
-    const styleTags = sheet.getStyleElement()
+    );
+    const styleTags = sheet.getStyleElement();
 
-    let userAgent = undefined
-    if (req && req.headers) userAgent = req.headers['user-agent']
+    let userAgent;
+    if (req && req.headers) userAgent = req.headers['user-agent'];
 
     // const initialProps = await Document.getInitialProps(context);
     return {
       ...page,
       styleTags,
       isPublic: !userAgent || !userAgent.match(/(iOS|Android)/i),
-    }
+    };
   }
 
   render() {
     const {
       props: { styleTags },
-    } = this
+    } = this;
 
     return (
-      <html>
+      <html lang="kr">
         <Head>
           {styleTags}
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -67,6 +67,6 @@ export default class MyDocument extends Document<Props> {
           <NextScript />
         </body>
       </html>
-    )
+    );
   }
 }
