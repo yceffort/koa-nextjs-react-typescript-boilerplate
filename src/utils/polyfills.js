@@ -1,9 +1,9 @@
-import 'core-js/es6/set';
-import 'core-js/es6/map';
-import 'core-js/es6/symbol';
-import 'core-js/es6/array';
-import 'core-js/es7/array';
-import 'core-js/es6/object';
+import 'core-js/features/set';
+import 'core-js/features/map';
+import 'core-js/features/symbol';
+import 'core-js/features/array';
+import 'core-js/features/array';
+import 'core-js/features/object';
 
 function addCustomEventPolyfill() {
   if (typeof window.CustomEvent === 'function') {
