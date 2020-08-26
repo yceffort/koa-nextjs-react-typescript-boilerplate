@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import Document, {
   Head,
   Main,
   NextScript,
   DocumentContext,
-} from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 interface Props {
   styleTags: any;
@@ -15,12 +15,14 @@ export default class MyDocument extends Document<Props> {
   static async getInitialProps({ req, renderPage }: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const page = renderPage((App: any) => (props: any) =>
-      sheet.collectStyles(<App {...props} />),
+      sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
 
     let userAgent;
-    if (req && req.headers) userAgent = req.headers['user-agent'];
+    if (req && req.headers) {
+      userAgent = req.headers["user-agent"];
+    }
 
     // const initialProps = await Document.getInitialProps(context);
     return {
@@ -58,7 +60,7 @@ export default class MyDocument extends Document<Props> {
             type="text/css"
             dangerouslySetInnerHTML={{
               __html:
-                'body { margin: 0 !important; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none; }',
+                "body { margin: 0 !important; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none; }",
             }}
           />
         </Head>
