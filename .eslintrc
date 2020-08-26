@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "eslint-config-yceffort",    
+  ],
+  "rules": {    
+  }
+}

@@ -5,8 +5,10 @@
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "NODE_ENV=production node dist/index.js",
-    "lint": "eslint '**/*.{ts,tsx}'",
-    "prettier": "prettier --write \"**/*.{js,ts,tsx,json}\""
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "lint:fix": "npm run lint --fix",
+    "prettier": "prettier '**/*.{json,yaml,md}' --check",
+    "prettier:fix": "prettier '**/*.{json,yaml,md}' --write"
   },
   "husky": {
     "hooks": {
@@ -43,18 +45,10 @@
     "@types/react-dom": "16.9.5",
     "@types/styled-components": "^5.0.1",
     "babel-plugin-styled-components": "^1.10.7",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.5",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint-config-yceffort": "0.0.1",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "nodemon": "^2.0.2",
-    "prettier": "^1.19.1",
     "typescript": "^3.8.3"
   }
 }
