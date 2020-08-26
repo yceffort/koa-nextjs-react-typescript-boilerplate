@@ -1,22 +1,21 @@
-import 'core-js/features/set';
-import 'core-js/features/map';
-import 'core-js/features/symbol';
-import 'core-js/features/array';
-import 'core-js/features/array';
-import 'core-js/features/object';
+import "core-js/features/set";
+import "core-js/features/map";
+import "core-js/features/symbol";
+import "core-js/features/array";
+import "core-js/features/object";
 
 function addCustomEventPolyfill() {
-  if (typeof window.CustomEvent === 'function') {
+  if (typeof window.CustomEvent === "function") {
     // If not IE
     return false;
   }
 
   function CustomEvent(
     event,
-    params = { bubbles: false, cancelable: false, detail: undefined },
+    params = { bubbles: false, cancelable: false, detail: undefined }
   ) {
     const { bubbles, cancelable, detail } = params;
-    const customEvent = document.createEvent('CustomEvent');
+    const customEvent = document.createEvent("CustomEvent");
 
     customEvent.initCustomEvent(customEvent, bubbles, cancelable, detail);
 
@@ -31,7 +30,7 @@ function addCustomEventPolyfill() {
 function addArrayFlatPolyfill() {
   const ArrayPrototype = Array.prototype;
 
-  if ('flatten' in ArrayPrototype && !('flat' in ArrayPrototype)) {
+  if ("flatten" in ArrayPrototype && !("flat" in ArrayPrototype)) {
     ArrayPrototype.flat = ArrayPrototype.flatten;
   }
 }
