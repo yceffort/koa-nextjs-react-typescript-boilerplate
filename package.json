@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": []
+    "**/*.{js,ts,tsx}": ["eslint", "prettier"]
   },
   "dependencies": {
     "core-js": "^3.6.4",
