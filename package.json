@@ -16,7 +16,10 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx}": ["eslint", "prettier"]
+    "**/*.{js,ts,tsx}": [
+      "eslint",
+      "prettier"
+    ]
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -49,6 +52,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "nodemon": "^2.0.2",
+    "ts-node": "^9.0.0",
     "typescript": "^3.8.3"
   }
 }
