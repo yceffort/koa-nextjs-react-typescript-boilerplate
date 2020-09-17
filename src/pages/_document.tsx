@@ -48,13 +48,7 @@ export default class MyDocument extends Document<Props> {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimum-scale=1, viewport-fit=cover"
           />
-          <link
-            rel="apple-touch-icon-precomposed"
-            href="/icons/favicon-152x152.png"
-          />
-          <link rel="icon" href="/icons/favicon-152x152.png" />
           <meta name="msapplication-TileColor" content="#1CC0A6" />
-          <link rel="manifest" href="/manifest.json" />
 
           <style
             type="text/css"
