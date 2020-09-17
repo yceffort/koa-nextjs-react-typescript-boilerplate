@@ -38,7 +38,7 @@ export default class MyDocument extends Document<Props> {
     } = this;
 
     return (
-      <html lang="kr">
+      <html lang="ko">
         <Head>
           {styleTags}
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
