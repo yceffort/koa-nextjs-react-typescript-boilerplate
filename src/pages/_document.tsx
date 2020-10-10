@@ -1,27 +1,27 @@
-import React from "react";
+import React from 'react'
 import Document, {
   Head,
   Main,
   NextScript,
   DocumentContext,
-} from "next/document";
-import { ServerStyleSheet } from "styled-components";
+} from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 interface Props {
-  styleTags: any;
+  styleTags: any
 }
 
 export default class MyDocument extends Document<Props> {
   static async getInitialProps({ req, renderPage }: DocumentContext) {
-    const sheet = new ServerStyleSheet();
+    const sheet = new ServerStyleSheet()
     const page = renderPage((App: any) => (props: any) =>
-      sheet.collectStyles(<App {...props} />)
-    );
-    const styleTags = sheet.getStyleElement();
+      sheet.collectStyles(<App {...props} />),
+    )
+    const styleTags = sheet.getStyleElement()
 
-    let userAgent;
+    let userAgent
     if (req && req.headers) {
-      userAgent = req.headers["user-agent"];
+      userAgent = req.headers['user-agent']
     }
 
     // const initialProps = await Document.getInitialProps(context);
@@ -29,13 +29,13 @@ export default class MyDocument extends Document<Props> {
       ...page,
       styleTags,
       isPublic: !userAgent || !userAgent.match(/(iOS|Android)/i),
-    };
+    }
   }
 
   render() {
     const {
       props: { styleTags },
-    } = this;
+    } = this
 
     return (
       <html lang="ko">
@@ -54,7 +54,7 @@ export default class MyDocument extends Document<Props> {
             type="text/css"
             dangerouslySetInnerHTML={{
               __html:
-                "body { margin: 0 !important; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none; }",
+                'body { margin: 0 !important; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none; }',
             }}
           />
         </Head>
@@ -63,6 +63,6 @@ export default class MyDocument extends Document<Props> {
           <NextScript />
         </body>
       </html>
-    );
+    )
   }
 }
