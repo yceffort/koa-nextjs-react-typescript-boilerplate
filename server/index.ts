@@ -1,5 +1,5 @@
-import * as humps from 'humps'
 import Koa from 'koa'
+import qs from 'koa-qs'
 import bodyparser from 'koa-body'
 import morgan from 'koa-morgan'
 import mount from 'koa-mount'
@@ -13,7 +13,7 @@ const API_URI_BASE = process.env.API_URI_BASE || ''
 
 async function main() {
   const nextApp = next({ dev })
-  const app = new Koa()
+  const app = qs(new Koa(), 'extended')
   const router = new Router()
 
   await nextApp.prepare()
@@ -21,19 +21,19 @@ async function main() {
   const handle = nextApp.getRequestHandler()
 
   function renderNext(route: string) {
-    return (ctx: any) => {
+    return (ctx: Koa.Context) => {
       ctx.res.statusCode = 200
       ctx.respond = false
 
-      nextApp.render(ctx.req, ctx.res, route, {
-        ...((ctx.request && ctx.request.body) || {}),
-        ...ctx.params,
-        ...(ctx.query && humps.camelizeKeys(ctx.query)),
-      })
+      nextApp.render(ctx.req, ctx.res, route, { ...ctx.prarams, ...ctx.query })
     }
   }
 
+  // /
   router.get('/', renderNext('/'))
+  
+  // /hello
+  router.get('/hello', renderNext('/hello'))
 
   app
     .use(morgan('combined'))
