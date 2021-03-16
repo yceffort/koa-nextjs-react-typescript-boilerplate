@@ -1,4 +1,5 @@
 module.exports = {
+  env: {}, // add your env variables https://nextjs.org/docs/api-reference/next.config.js/environment-variables
   generateEtags: true,
   webpack: (config) => {
     const originalEntry = config.entry
