@@ -13,23 +13,16 @@ interface Props {
 }
 
 export default class MyDocument extends Document<Props> {
-  static async getInitialProps({ req, renderPage }: DocumentContext) {
+  static async getInitialProps({ renderPage }: DocumentContext) {
     const sheet = new ServerStyleSheet()
     const page = renderPage((App: any) => (props: any) =>
       sheet.collectStyles(<App {...props} />),
     )
     const styleTags = sheet.getStyleElement()
 
-    let userAgent
-    if (req && req.headers) {
-      userAgent = req.headers['user-agent']
-    }
-
-    // const initialProps = await Document.getInitialProps(context);
     return {
       ...page,
       styleTags,
-      isPublic: !userAgent || !userAgent.match(/(iOS|Android)/i),
     }
   }
 
