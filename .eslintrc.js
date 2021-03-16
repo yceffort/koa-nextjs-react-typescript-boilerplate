@@ -6,5 +6,6 @@ module.exports = {
   ],
   "rules": {
     '@typescript-eslint/naming-convention': customRule.extendedRules
+    'react/react-in-jsx-scope': ['off']
   }
 }
