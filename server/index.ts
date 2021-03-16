@@ -31,7 +31,7 @@ async function main() {
 
   // /
   router.get('/', renderNext('/'))
-  
+
   // /hello
   router.get('/hello', renderNext('/hello'))
 
