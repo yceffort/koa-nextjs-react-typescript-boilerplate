@@ -1,4 +1,4 @@
-import React from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 
 const CustomDiv = styled.div`
@@ -6,5 +6,12 @@ const CustomDiv = styled.div`
 `
 
 export default function Index() {
-  return <CustomDiv>Hello yc</CustomDiv>
+  return (
+    <>
+      <CustomDiv>Hello yc</CustomDiv>
+      <Link href={{ pathname: '/hello', query: { name: 'yceffort' } }}>
+        Say Hello?
+      </Link>
+    </>
+  )
 }
