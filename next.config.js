@@ -1,6 +1,7 @@
 module.exports = {
   env: {}, // add your env variables https://nextjs.org/docs/api-reference/next.config.js/environment-variables
   generateEtags: true,
+  useFileSystemPublicRoutes: false,
   webpack: (config) => {
     const originalEntry = config.entry
     config.entry = async () => {
